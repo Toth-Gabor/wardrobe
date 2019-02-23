@@ -19,8 +19,8 @@ public class CmdProgram {
     }
     
     public void run() {
-        String[] menuOptions = new String[]{"to create a new plaza.", "to enter the default plaza", "to load saved plaza", "to exit"};
-        Menu menu = new Menu("Plaza project", menuOptions);
+        String[] menuOptions = new String[]{"to create a new wardrobe.", "to enter the default wardobe", "to load saved plaza", "to exit"};
+        Menu menu = new Menu("Wardrobe", menuOptions);
         
         while (true) {
             menu.displayMenu();
