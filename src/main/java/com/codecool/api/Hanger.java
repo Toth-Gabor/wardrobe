@@ -11,7 +11,7 @@ public abstract class Hanger {
         num++;
     }
     
-    protected abstract void addClothes(Clothes clothes) throws HangerIsFullExeption, WrongClothesTypeException;
+    protected abstract void addClothes(Clothes clothes) throws HangerIsFullException, WrongClothesTypeException;
     
     protected abstract void removeClothes();
     

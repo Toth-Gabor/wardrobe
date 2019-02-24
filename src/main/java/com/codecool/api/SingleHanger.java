@@ -6,14 +6,16 @@ public class SingleHanger extends Hanger {
     
     
     @Override
-    protected void addClothes(Clothes clothes) throws HangerIsFullExeption, WrongClothesTypeException {
+    protected void addClothes(Clothes clothes) throws HangerIsFullException, WrongClothesTypeException {
         if (!isFull()){
             if (isRightTypeClothes(clothes)){
                 this.clothes = clothes;
+            } else {
+                throw new WrongClothesTypeException("Wrong type of clothes!");
             }
-            throw new WrongClothesTypeException("Wrong type of clothes!");
+        } else {
+            throw new HangerIsFullException("This hanger is full!");
         }
-        throw new HangerIsFullExeption("This hanger is full!");
     }
     
     @Override
@@ -37,8 +39,11 @@ public class SingleHanger extends Hanger {
     
     @Override
     public String toString() {
-        return "SingleHanger{" +
-            "clothes=" + clothes +
-            "} " + super.toString();
+        if (clothes == null){
+            return "SingleHanger id: " + id + "\n This hanger is empty!";
+        } else {
+            return "SingleHanger id: " + id + "\n Clothes: " + clothes;
+    
+        }
     }
 }

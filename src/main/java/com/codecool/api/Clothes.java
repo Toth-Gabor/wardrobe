@@ -1,16 +1,18 @@
 package com.codecool.api;
 
-public abstract class Clothes {
+public class Clothes {
     
-    private int id;
+    private static int num = 1;
+    protected int id;
     private String brand;
     private ClothesType clothesType;
     
     
-    public Clothes(int id, String brand, ClothesType clothesType) {
-        this.id = id;
+    public Clothes(String brand, ClothesType clothesType) {
+        this.id = num;
         this.brand = brand;
         this.clothesType = clothesType;
+        num++;
     }
     
     public int getId() {
@@ -27,10 +29,6 @@ public abstract class Clothes {
     
     @Override
     public String toString() {
-        return "Clothes{" +
-            "id=" + id +
-            ", brand='" + brand + '\'' +
-            ", clothesType=" + clothesType +
-            '}';
+        return clothesType + ", id: " + id + ". brand: " + brand;
     }
 }
