@@ -2,9 +2,7 @@ package com.codecool.api;
 
 public class CombiHanger extends Hanger {
     
-    public CombiHanger(int id) {
-        super(id);
-    }
+
     
     @Override
     protected void addClothes(Clothes clothes) throws HangerIsFullExeption, WrongClothesTypeException {

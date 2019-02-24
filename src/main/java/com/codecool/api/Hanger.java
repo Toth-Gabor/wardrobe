@@ -3,10 +3,12 @@ package com.codecool.api;
 
 public abstract class Hanger {
     
-    private int id;
+    private static int num = 1;
+    protected int id;
     
-    public Hanger(int id) {
-        this.id = id;
+    public Hanger() {
+        this.id = num;
+        num++;
     }
     
     protected abstract void addClothes(Clothes clothes) throws HangerIsFullExeption, WrongClothesTypeException;

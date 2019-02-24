@@ -4,9 +4,6 @@ public class SingleHanger extends Hanger {
     
     private Clothes clothes;
     
-    public SingleHanger(int id) {
-        super(id);
-    }
     
     @Override
     protected void addClothes(Clothes clothes) throws HangerIsFullExeption, WrongClothesTypeException {
