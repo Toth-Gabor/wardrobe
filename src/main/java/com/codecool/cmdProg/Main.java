@@ -14,8 +14,8 @@ public class Main {
         CombiHanger ch = new CombiHanger();
         System.out.println(ch.getId());
     
-        Clothes c = new Clothes("Otto", ClothesType.SHIRT);
-        Clothes c1 = new Clothes("Baboon", ClothesType.TROUSERS);
+        Clothes c = new Clothes("Red", ClothesType.SHIRT);
+        Clothes c1 = new Clothes("Blue", ClothesType.TROUSERS);
         Wardrobe w = new Wardrobe("Wardrobe",3);
         try {
             w.addHanger(sh);
@@ -25,7 +25,7 @@ public class Main {
             System.out.println(e.getMessage());
         }
         try {
-            //w.addClothes(3,c1);
+            w.addClothes(3,c1);
             w.addClothes(3,c);
         } catch (NoSuchHangerException | HangerIsFullException | WrongClothesTypeException e) {
             System.out.println(e.getMessage());

@@ -7,10 +7,12 @@ public class CombiHanger extends Hanger {
     
     @Override
     protected void addClothes(Clothes clothes) throws HangerIsFullException {
-        if (!isFull() && (clothes.getClothesType().equals(ClothesType.BLOUSE) || clothes.getClothesType().equals(ClothesType.SHIRT))){
+        if (!isFull() && (clothes.getClothesType().equals(ClothesType.BLOUSE)
+                        || clothes.getClothesType().equals(ClothesType.SHIRT))){
             this.upper = clothes;
-
-        } else if(!isUnderFull() && (clothes.getClothesType().equals(ClothesType.TROUSERS) || clothes.getClothesType().equals(ClothesType.SKIRT))){
+            
+        } else if(!isUnderFull() && (clothes.getClothesType().equals(ClothesType.TROUSERS)
+                                    || clothes.getClothesType().equals(ClothesType.SKIRT))){
             this.under = clothes;
         } else {
             throw new HangerIsFullException("This hanger is full!");
