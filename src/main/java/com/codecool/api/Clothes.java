@@ -29,6 +29,6 @@ public class Clothes {
     
     @Override
     public String toString() {
-        return clothesType + ", id: " + id + ". color: " + color;
+        return  "id:" + id + ". " + color + " " + clothesType;
     }
 }

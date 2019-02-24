@@ -40,9 +40,9 @@ public class SingleHanger extends Hanger {
     @Override
     public String toString() {
         if (clothes == null){
-            return "SingleHanger id: " + id + "\n This hanger is empty!";
+            return "Single hanger id: " + id + "\n This hanger is empty!\n";
         } else {
-            return "SingleHanger id: " + id + "\n Clothes: " + clothes;
+            return "Single hanger id: " + id + "\n clothes: " + clothes + "\n";
     
         }
     }

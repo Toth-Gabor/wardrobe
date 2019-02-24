@@ -19,6 +19,14 @@ public class CombiHanger extends Hanger {
         }
     }
     
+    public Clothes getUpper() {
+        return upper;
+    }
+    
+    public Clothes getUnder() {
+        return under;
+    }
+    
     @Override
     protected void removeClothes() {
     
@@ -42,14 +50,14 @@ public class CombiHanger extends Hanger {
     public String toString() {
         String result = "";
         if (!isFull() && isUnderFull()){
-            result = "CombiHanger id: " + id + "\n" + " upper: is empty!\n under: " + under;
+            result = "Combi hanger id: " + id + "\n" + " upper: is empty!\n under: " + under;
         } else if (isFull() && !isUnderFull()){
-            result = "CombiHanger id: " + id + "\n" + " upper: " + upper + "\n under: is empty!";
+            result = "Combi hanger id: " + id + "\n" + " upper: " + upper + "\n under: is empty!";
         } else if (!isFull() && !isUnderFull()){
-            result =  "CombiHanger id: " + id + "\n" + " upper: is empty!\n under: is empty!";
+            result =  "Combi hanger id: " + id + "\n" + " upper: is empty!\n under: is empty!";
         } else {
-            result = "CombiHanger id: " + id + "\n" + " upper: " + upper + "\n under: " + under;
+            result = "Combi hanger id: " + id + "\n" + " upper: " + upper + "\n under: " + under;
         }
-        return result;
+        return result + "\n";
     }
 }
