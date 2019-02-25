@@ -20,8 +20,7 @@ public class CmdProgram {
     }
     
     public void run() {
-        String[] menuOptions = new String[]{"to create a new wardrobe.", "to enter the default wardobe",
-            "to load saved wardrobe", "to exit"};
+        String[] menuOptions = new String[]{"to create a new wardrobe.", "to enter the default wardobe", "to exit"};
         Menu menu = new Menu("Main menu", menuOptions);
         
         while (true) {
@@ -40,9 +39,6 @@ public class CmdProgram {
                     wardrobeMenu();
                     break;
                 case "3":
-                    
-                    break;
-                case "4":
                     System.exit(0);
                     break;
             }
@@ -67,7 +63,7 @@ public class CmdProgram {
     
     private void wardrobeMenu() {
         String[] menuOptions = new String[]{"to create a new hangers", "list all hangers",
-            "to load saved wardrobe", "to exit"};
+            "add clothes", "to exit"};
         Menu menu = new Menu("Wardrobe menu", menuOptions);
     
         while (true) {
@@ -131,5 +127,17 @@ public class CmdProgram {
         } else {
             throw new NoHangersException("Create hangers first!");
         }
+        
+    }
+    //Itt fejeztem be!
+    
+    private void addClothes() throws WardrobeIsEmptyExceptions {
+        if(!wardrobe.isEmpty()){
+            System.out.print("Give a type of clothes[SHIRT, BLOUSE, TROUSER, SKIRT]:");
+    
+        } else {
+            throw new WardrobeIsEmptyExceptions("Add hangers first!");
+        }
+        
     }
 }
