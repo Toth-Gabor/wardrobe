@@ -2,11 +2,6 @@ package com.codecool.cmdProg;
 
 import com.codecool.api.*;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 import java.util.Scanner;
 
 public class CmdProgram {
@@ -45,12 +40,12 @@ public class CmdProgram {
         }
     }
     
-    private void createWardrobe() throws NumberFormatException{
+    private void createWardrobe() throws NumberFormatException {
         System.out.print("Give a name: ");
         String name = scanner.nextLine();
         System.out.print("Give the max number of hangers: ");
         int limit = Integer.parseInt(scanner.nextLine());
-        wardrobe =  new Wardrobe(name, limit);
+        wardrobe = new Wardrobe(name, limit);
     }
     
     private void defaultWardrobe() throws WardrobeIsFullException {
@@ -65,7 +60,7 @@ public class CmdProgram {
         String[] menuOptions = new String[]{"to create a new hangers", "list all hangers",
             "add clothes", "to exit"};
         Menu menu = new Menu("Wardrobe menu", menuOptions);
-    
+        
         while (true) {
             menu.displayMenu();
             switch (scanner.nextLine()) {
@@ -98,22 +93,22 @@ public class CmdProgram {
     }
     
     private void createHangers() throws ToMuchHangerException, NumberFormatException, WardrobeIsFullException {
-        if ((wardrobe.getHangarLimit() - wardrobe.getAddedNumOfHangers()) == 0){
+        if ((wardrobe.getHangarLimit() - wardrobe.getAddedNumOfHangers()) == 0) {
             throw new WardrobeIsFullException("You can not add more hanger!");
         }
         System.out.println("The max hangers are: " + (wardrobe.getHangarLimit() - wardrobe.getAddedNumOfHangers()));
         System.out.print("How many hangars do you want to create? ");
         int num = Integer.parseInt(scanner.nextLine());
-        if((wardrobe.getHangers().size() + num) <= wardrobe.getHangarLimit()){
-            while (true){
+        if ((wardrobe.getHangers().size() + num) <= wardrobe.getHangarLimit()) {
+            while (true) {
                 System.out.print("What type of hanger do you want [single or combi]? ");
                 String hangerType = scanner.nextLine();
-                if (hangerType.toLowerCase().equals("single")){
+                if (hangerType.toLowerCase().equals("single")) {
                     for (int i = 0; i < num; i++) {
                         wardrobe.addHanger(new SingleHanger());
                     }
                     break;
-                } else if (hangerType.toLowerCase().equals("combi")){
+                } else if (hangerType.toLowerCase().equals("combi")) {
                     for (int i = 0; i < num; i++) {
                         wardrobe.addHanger(new CombiHanger());
                     }
@@ -125,34 +120,34 @@ public class CmdProgram {
                 (wardrobe.getHangarLimit() - wardrobe.getAddedNumOfHangers()) + "!");
         }
     }
+    
     private void showAllHangers() throws NoHangersException {
-        if (!wardrobe.isEmpty()){
+        if (!wardrobe.isEmpty()) {
             System.out.println(wardrobe);
         } else {
             throw new NoHangersException("Create hangers first!");
         }
-        
     }
     
     private void addClothes() throws WardrobeIsEmptyExceptions, NumberFormatException, WrongClothesTypeException, NoSuchHangerException, HangerIsFullException {
-        if(!wardrobe.isEmpty()){
+        if (!wardrobe.isEmpty()) {
             System.out.print("Give a hanger id: ");
             int id = Integer.parseInt(scanner.nextLine());
             System.out.print("Give a brand: ");
             String brand = scanner.nextLine();
             System.out.print("Give a type of clothes[SHIRT, BLOUSE, TROUSER, SKIRT]: ");
-            switch (scanner.nextLine().toLowerCase()){
+            switch (scanner.nextLine().toLowerCase()) {
                 case "shirt":
-                    wardrobe.addClothes(id, new Clothes(brand,ClothesType.SHIRT));
+                    wardrobe.addClothes(id, new Clothes(brand, ClothesType.SHIRT));
                     break;
                 case "blouse":
-                    wardrobe.addClothes(id, new Clothes(brand,ClothesType.BLOUSE));
+                    wardrobe.addClothes(id, new Clothes(brand, ClothesType.BLOUSE));
                     break;
                 case "trouser":
-                    wardrobe.addClothes(id, new Clothes(brand,ClothesType.TROUSERS));
+                    wardrobe.addClothes(id, new Clothes(brand, ClothesType.TROUSERS));
                     break;
                 case "skirt":
-                    wardrobe.addClothes(id, new Clothes(brand,ClothesType.SKIRT));
+                    wardrobe.addClothes(id, new Clothes(brand, ClothesType.SKIRT));
                     break;
             }
         } else {
