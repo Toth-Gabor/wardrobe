@@ -4,13 +4,13 @@ public class Clothes {
     
     private static int num = 1;
     protected int id;
-    private String color;
+    private String brand;
     private ClothesType clothesType;
     
     
-    public Clothes(String color, ClothesType clothesType) {
+    public Clothes(String brand, ClothesType clothesType) {
         this.id = num;
-        this.color = color;
+        this.brand = brand;
         this.clothesType = clothesType;
         num++;
     }
@@ -19,8 +19,8 @@ public class Clothes {
         return id;
     }
     
-    public String getColor() {
-        return color;
+    public String getBrand() {
+        return brand;
     }
     
     public ClothesType getClothesType() {
@@ -29,6 +29,6 @@ public class Clothes {
     
     @Override
     public String toString() {
-        return  "id:" + id + ". " + color + " " + clothesType;
+        return  "id:" + id + ". " + brand + " " + clothesType;
     }
 }

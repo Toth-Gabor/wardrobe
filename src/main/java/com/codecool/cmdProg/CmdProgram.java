@@ -84,7 +84,11 @@ public class CmdProgram {
                     }
                     break;
                 case "3":
-                
+                    try {
+                        addClothes();
+                    } catch (WardrobeIsEmptyExceptions | WrongClothesTypeException | NoSuchHangerException | HangerIsFullException e) {
+                        System.out.println(e.getMessage());
+                    }
                     break;
                 case "4":
                     System.exit(0);
@@ -129,12 +133,28 @@ public class CmdProgram {
         }
         
     }
-    //Itt fejeztem be!
     
-    private void addClothes() throws WardrobeIsEmptyExceptions {
+    private void addClothes() throws WardrobeIsEmptyExceptions, NumberFormatException, WrongClothesTypeException, NoSuchHangerException, HangerIsFullException {
         if(!wardrobe.isEmpty()){
-            System.out.print("Give a type of clothes[SHIRT, BLOUSE, TROUSER, SKIRT]:");
-    
+            System.out.print("Give a hanger id: ");
+            int id = Integer.parseInt(scanner.nextLine());
+            System.out.print("Give a brand: ");
+            String brand = scanner.nextLine();
+            System.out.print("Give a type of clothes[SHIRT, BLOUSE, TROUSER, SKIRT]: ");
+            switch (scanner.nextLine().toLowerCase()){
+                case "shirt":
+                    wardrobe.addClothes(id, new Clothes(brand,ClothesType.SHIRT));
+                    break;
+                case "blouse":
+                    wardrobe.addClothes(id, new Clothes(brand,ClothesType.BLOUSE));
+                    break;
+                case "trouser":
+                    wardrobe.addClothes(id, new Clothes(brand,ClothesType.TROUSERS));
+                    break;
+                case "skirt":
+                    wardrobe.addClothes(id, new Clothes(brand,ClothesType.SKIRT));
+                    break;
+            }
         } else {
             throw new WardrobeIsEmptyExceptions("Add hangers first!");
         }
